@@ -1,5 +1,6 @@
 ##docker
 docker pull nvidia/cuda:11.0.3-cudnn8-devel-centos7
+docker pull klhhhhh/llmsys:latest
 docker run -it -v /home/lk432963/code/:/code --name=centos7-CUDA --gpus all nvidia/cuda:11.0.3-cudnn8-devel-centos7 /bin/bash
 docker exec -it centos7-CUDA /bin/bash
 
