@@ -77,7 +77,6 @@ docker run -it -v {/path/to/your/project} --name=centos7-CUDA --gpus all {docker
 ```
 
 ### Docker exec
-
 ```
 docker exec -it centos7-CUDA /bin/bash
 ```
