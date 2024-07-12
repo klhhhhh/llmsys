@@ -74,13 +74,11 @@ Please replace any placeholder URLs with the actual download URLs provided by Do
 cd llmsys_s24_hw1
 docker build -t llmsys_s24_hw1 .
 docker run -it -v {/path/to/your/project} --name=centos7-CUDA --gpus all {docker_name} /bin/bash
-
 ```
 
 ### Docker exec
 
 ```
 docker exec -it centos7-CUDA /bin/bash
-
 ```
 
