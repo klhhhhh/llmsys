@@ -68,7 +68,6 @@ Installing Docker on different platforms involves a few distinct steps for each 
 
 Please replace any placeholder URLs with the actual download URLs provided by Docker on their official website. Always refer to the [official Docker documentation](https://docs.docker.com/get-docker/) for the most accurate and up-to-date installation instructions.
 
-
 ### Build docker and run
 ```
 cd llmsys_s24_hw1
