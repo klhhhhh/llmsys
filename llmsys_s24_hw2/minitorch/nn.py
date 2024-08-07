@@ -209,8 +209,7 @@ def GELU(input: Tensor) -> Tensor:
     https://pytorch.org/docs/stable/generated/torch.nn.GELU.html
     """
     ### BEGIN YOUR SOLUTION
-    return 0.5 * input * (1 + math.tanh(math.sqrt(2 / np.pi) * (0.044715 * input**3)))
-
+    return 0.5 * input * (1.0 + (math.sqrt(2.0 / math.pi) * (input + 0.044715 * input**3)).tanh())
     # raise NotImplementedError
     ### END YOUR SOLUTION
 

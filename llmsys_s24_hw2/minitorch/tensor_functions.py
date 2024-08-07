@@ -193,8 +193,9 @@ class Tanh(Function):
                 Tensor containing the element-wise tanh of a.
         """
         ### BEGIN YOUR SOLUTION
-        ctx.save_for_backward(a)
-        return a.f.tanh_map(a)
+        out = a.f.tanh_map(a)
+        ctx.save_for_backward(out)
+        return out
 
         # raise NotImplementedError
         ### END YOUR SOLUTION
@@ -216,8 +217,8 @@ class Tanh(Function):
                 gradient_for_a must be the correct element-wise gradient for tanh.
         """
 
-        a = ctx.saved_values
-        return grad_out * (-(out ** 2) + 1)
+        out = ctx.saved_values[0]
+        return grad_output * (-(out ** 2) + 1)
         ### BEGIN YOUR SOLUTION
         # raise NotImplementedError
         ### END YOUR SOLUTION
