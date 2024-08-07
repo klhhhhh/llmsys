@@ -240,7 +240,8 @@ def one_hot(input: Tensor, num_classes: int) -> Tensor:
     Hint: You may want to use a combination of np.eye, tensor_from_numpy, 
     """
     ### BEGIN YOUR SOLUTION
-    raise NotImplementedError
+    return tensor_from_numpy(np.eye(num_classes)[input.to_numpy()])
+    # raise NotImplementedError
     ### END YOUR SOLUTION
 
 
