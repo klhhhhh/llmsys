@@ -227,6 +227,7 @@ def logsumexp(input: Tensor, dim: int) -> Tensor:
             NOTE: minitorch functions/tensor functions typically keep dimensions if you provide a dimensions.
     """  
     ### BEGIN YOUR SOLUTION
+    dim = len(input.shape) + dim if dim < 0 else dim
     return (input.exp().sum(dim)).log()
     # raise NotImplementedError
     ### END YOUR SOLUTION
@@ -240,7 +241,7 @@ def one_hot(input: Tensor, num_classes: int) -> Tensor:
     Hint: You may want to use a combination of np.eye, tensor_from_numpy, 
     """
     ### BEGIN YOUR SOLUTION
-    return tensor_from_numpy(np.eye(num_classes)[input.to_numpy()])
+    return tensor_from_numpy(np.eye(num_classes)[input.to_numpy().reshape(-1).astype(int)])
     # raise NotImplementedError
     ### END YOUR SOLUTION
 
@@ -258,6 +259,9 @@ def softmax_loss(logits: Tensor, target: Tensor) -> Tensor:
     """
     result = None
     ### BEGIN YOUR SOLUTION
-    raise NotImplementedError
+    batch_size = logits.shape[0]
+    target_tensor = (one_hot(target, logits.shape[-1]) * logits).sum(dim = len(logits.shape) - 1)
+    result = logsumexp(logits, dim = -1) - target_tensor
+    # raise NotImplementedError
     ### END YOUR SOLUTION
     return result.view(batch_size, )
